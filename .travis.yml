@@ -6,3 +6,9 @@ jdk:
 script:
 - ./grailsw refresh-dependencies
 - ./grailsw -Dgrails.env=travis_ci test-app -coverage -xml
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "72d66a42-3e50-44c7-8191-79162465713e"
+
