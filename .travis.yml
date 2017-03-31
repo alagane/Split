@@ -6,6 +6,3 @@ jdk:
 script:
 - ./grailsw refresh-dependencies
 - ./grailsw -Dgrails.env=travis_ci test-app -coverage -xml
-
-after_success:
-- ./grailsw coveralls
