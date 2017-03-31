@@ -15,9 +15,6 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 deploy:
-
   provider: heroku
   api_key: "88302bfb-c539-4b2d-a34a-f72e25bbe43d"
   app: ivvq-split
-
-
