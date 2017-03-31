@@ -8,7 +8,9 @@ script:
 - ./grailsw -Dgrails.env=travis_ci test-app -coverage -xml
 
 deploy:
+
   provider: heroku
   api_key: "72d66a42-3e50-44c7-8191-79162465713e"
+  app: ivvq-split
     secure:
 
