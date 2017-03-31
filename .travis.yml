@@ -7,6 +7,13 @@ script:
 - ./grailsw refresh-dependencies
 - ./grailsw -Dgrails.env=travis_ci test-app -coverage -xml
 
+env:
+  global:
+    - CODECOV_TOKEN=3be9501e-2352-4cda-8859-7135ed9d148e
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
 deploy:
 
   provider: heroku
