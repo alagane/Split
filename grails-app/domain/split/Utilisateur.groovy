@@ -3,7 +3,7 @@ package split
 class Utilisateur {
 
     static hasMany = [
-            activites: Personnalite
+            personnalites: Personnalite
     ]
 
     String nom
@@ -12,6 +12,7 @@ class Utilisateur {
     String sexe
     Date dateNaissance
     String photo
+    String password
 
     static constraints = {
         nom blank: false, nullable: false
@@ -19,6 +20,7 @@ class Utilisateur {
         email blank: false, nullable: false, email: true
         sexe blank: false, nullable: false, matches: "[MF]"
         dateNaissance blank: true, nullable: true
-        photo blanc: true, nullable: true
+        photo blank: true, nullable: true
+        password blank: false, nullable: false, minSize: 6
     }
 }

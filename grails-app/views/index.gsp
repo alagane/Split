@@ -3,6 +3,7 @@
 	<head>
 		<meta name="layout" content="main"/>
 		<title>Welcome to Grails</title>
+		<title>Welcome to Grails</title>
 		<style type="text/css" media="screen">
 			#status {
 				background-color: #eee;
@@ -117,6 +118,24 @@
 					</g:each>
 				</ul>
 			</div>
+
+			<div id="login">
+				<g:if test="${session.user}">
+					<g:if test="${flash.message}">Welcome back ${flash.message}</g:if>
+					<g:else>Logged in as <B>${session.user}</B></g:else>
+					<g:link controller="utilisateur" action="logout">Logout</g:link>
+				</g:if>
+				<g:else>
+					<g:form controller="utilisateur" action="login">
+						<label for="email">Email</label>
+						<input type="text" name="email"/>
+						<label for="password">Password</label>
+						<input type="password" name="password"/>
+						<input type="submit" value="Login"/>
+					</g:form>
+				</g:else>
+			</div>
+
 		</div>
 	</body>
 </html>
