@@ -25,4 +25,8 @@ class BootstrapService {
         saindy.save()
         ben.save()
     }
+
+    def getAlex() {
+        alex
+    }
 }
