@@ -1,4 +1,7 @@
 import grails.util.Environment
+import split.Utilisateur
+
+import grails.util.Environment
 
 class BootStrap {
     def bootstrapService
