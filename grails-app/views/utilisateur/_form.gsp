@@ -57,11 +57,11 @@
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: utilisateurInstance, field: 'password', 'error')} required">
-	<label for="motDePasse">
-		<g:message code="utilisateur.motDePasse.label" default="Mot De Passe" />
+	<label for="password">
+		<g:message code="utilisateur.password.label" default="Password" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="motDePasse" required="" value="${utilisateurInstance?.motDePasse}"/>
+	<g:textField name="password" required="" value="${utilisateurInstance?.password}"/>
 
 </div>
 

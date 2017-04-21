@@ -77,11 +77,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${utilisateurInstance?.motDePasse}">
+				<g:if test="${utilisateurInstance?.password}">
 				<li class="fieldcontain">
-					<span id="motDePasse-label" class="property-label"><g:message code="utilisateur.motDePasse.label" default="Mot De Passe" /></span>
+					<span id="password-label" class="property-label"><g:message code="utilisateur.password.label" default="Password" /></span>
 					
-						<span class="property-value" aria-labelledby="motDePasse-label"><g:fieldValue bean="${utilisateurInstance}" field="motDePasse"/></span>
+						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${utilisateurInstance}" field="password"/></span>
 					
 				</li>
 				</g:if>

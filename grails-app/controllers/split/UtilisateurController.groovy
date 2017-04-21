@@ -8,6 +8,8 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class UtilisateurController {
 
+    UtilisateurService utilisateurService
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -102,17 +104,23 @@ class UtilisateurController {
         }
     }
 
-    def login = {
-        if (params.email == "testemail" && params.password == "testpassword") {
-            flash.message = "Welcome back, <B>${params.email}</B>."
-            session.user = "testemail"
+    def login() {
+        Utilisateur user = utilisateurService.getUser(params.email, params.password);
+
+        if (user == null) {
+            flash.message = "Email incorrect"
+            redirect(action: 'index')
+        } else if (user.password != params.password) {
+            flash.message = "Password incorrect"
+            redirect(action: 'index')
         } else {
-            flash.message = "Login failed"
+            flash.message = "Welcome back, ${params.email}."
+            session.user = user
         }
-        redirect(action: 'index')
+
     }
 
-    def logout = {
+    def logout() {
         session.user = null
         redirect(action: 'index')
     }
