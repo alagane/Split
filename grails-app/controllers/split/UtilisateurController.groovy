@@ -105,7 +105,9 @@ class UtilisateurController {
     }
 
     def login() {
-        Utilisateur user = utilisateurService.getUser(params.email, params.password);
+        Utilisateur user = utilisateurService.getUser(params.email);
+
+        println user
 
         if (user == null) {
             flash.message = "Email incorrect"
