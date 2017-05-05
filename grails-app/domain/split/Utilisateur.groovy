@@ -19,7 +19,7 @@ class Utilisateur {
         prenom blank: false, nullable: false
         email blank: false, nullable: false, email: true
         sexe blank: false, nullable: false, matches: "[MF]"
-        dateNaissance blank: true, nullable: true
+        dateNaissance nullable: true
         photo blank: true, nullable: true
         password blank: false, nullable: false, minSize: 6
     }
