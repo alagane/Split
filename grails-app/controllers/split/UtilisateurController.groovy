@@ -105,9 +105,7 @@ class UtilisateurController {
     }
 
     def login() {
-        Utilisateur user = utilisateurService.getUser(params.email);
-
-        println user
+        Utilisateur user = utilisateurService.getUser(params.email)
 
         if (user == null) {
             flash.message = "Email incorrect"
@@ -118,12 +116,15 @@ class UtilisateurController {
         } else {
             flash.message = "Welcome back, ${params.email}."
             session.user = user
+            utilisateurService.current_user = user
+            session.nom = utilisateurService.getCurrentuser().nom
         }
 
     }
 
     def logout() {
         session.user = null
+        utilisateurService.current_user = null
         redirect(action: 'index')
     }
 }
