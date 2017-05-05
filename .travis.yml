@@ -7,8 +7,14 @@ script:
 - ./grailsw refresh-dependencies
 - ./grailsw -Dgrails.env=travis_ci test-app -coverage -xml
 
+env:
+  global:
+    - CODECOV_TOKEN=3be9501e-2352-4cda-8859-7135ed9d148e
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
 deploy:
   provider: heroku
-  api_key:
-    secure: "72d66a42-3e50-44c7-8191-79162465713e"
-
+  api_key: "88302bfb-c539-4b2d-a34a-f72e25bbe43d"
+  app: ivvq-split
