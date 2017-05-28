@@ -16,8 +16,16 @@ class UtilisateurService {
         return user
     }
 
-    def getCurrentuser() {
+    def Utilisateur getCurrentUser() {
         return current_user
+    }
+
+    def signOut() {
+        current_user = null;
+    }
+
+    def signIn(Utilisateur user) {
+        current_user = user;
     }
 
 }

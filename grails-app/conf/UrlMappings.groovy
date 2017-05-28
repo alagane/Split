@@ -1,3 +1,5 @@
+import split.IndexController
+
 class UrlMappings {
 
 	static mappings = {
@@ -7,7 +9,7 @@ class UrlMappings {
             }
         }
 
-        "/"(view:"/index")
+        "/"(redirect: "/index")
         "500"(view:'/error')
 	}
 }
