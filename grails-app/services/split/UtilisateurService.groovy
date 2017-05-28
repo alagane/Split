@@ -28,4 +28,16 @@ class UtilisateurService {
         current_user = user;
     }
 
+    List<Personnalite>  searchPersonnalite(String name){
+        def c = Personnalite.createCriteria()
+        List<Personnalite> res = c.list {
+            like 'surnom', "%${name}%"
+        }
+        return res
+    }
+
+    def addPersonnalite(Personnalite myPersonnalite, Personnalite personnaliteCible){
+
+    }
+
 }
