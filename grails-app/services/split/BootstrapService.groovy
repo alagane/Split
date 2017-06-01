@@ -4,10 +4,10 @@ import grails.transaction.Transactional
 
 @Transactional
 class BootstrapService {
-    private Utilisateur alex
-    private Utilisateur rachid
-    private Utilisateur saindy
-    private Utilisateur ben
+    Utilisateur alex
+    Utilisateur rachid
+    Utilisateur saindy
+    Utilisateur ben
 
     def initUtilisateur() {
         alex = new Utilisateur(prenom: "Alex", nom: "Lol", email: "alex@site.com", sexe: "M", password: "password")
