@@ -29,14 +29,13 @@
 				<span class="icon-bar"></span>z
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/Split">Split</a>
+			<g:link class="navbar-brand" uri="/">Split</g:link>
 		</div>
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="/Split">Home</a></li>
-				<li><a href="/Split/personnalite/create">Create a personality</a></li>
-				<li><a href="#">Search a personality</a></li>
-				<li><a href="#">Me</a></li>
+				<li><g:link controller="personnalite" action="create">Create a personality</g:link></li>
+				<li><a>Search a personality</a></li>
+				<li><a>Me</a></li>
 			</ul>
 		</div><!--/.nav-collapse -->
 	</div>
