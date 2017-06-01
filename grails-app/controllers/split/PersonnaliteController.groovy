@@ -12,9 +12,9 @@ class PersonnaliteController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Personnalite.list(params), model:[personnaliteInstanceCount: Personnalite.count()]
+    def index() {
+        List<Personnalite> personnaliteInstance = utilisateurService.getPersonnaliteCurrentUser()
+        respond personnaliteInstance, model:[personnaliteInstanceCount: personnaliteInstance.size(), utilisateur: utilisateurService.getCurrentUser()]
     }
 
     def show(Personnalite personnaliteInstance) {
@@ -22,7 +22,7 @@ class PersonnaliteController {
     }
 
     def create() {
-        respond new Personnalite(params)
+        respond new Personnalite(params), model:[utilisateur: utilisateurService.getCurrentUser().id]
     }
 
     @Transactional
@@ -32,9 +32,8 @@ class PersonnaliteController {
             return
         }
 
-        def alex = bootstrapService.getAlex()
-        alex = utilisateurService.ajouterPersonnalite(alex, personnaliteInstance)
-        personnaliteInstance.setUtilisateur(alex)
+        Utilisateur utilisateur = utilisateurService.getCurrentUser()
+        personnaliteInstance.setUtilisateur(utilisateur)
 
         if (personnaliteInstance.hasErrors()) {
             respond personnaliteInstance.errors, view:'create'

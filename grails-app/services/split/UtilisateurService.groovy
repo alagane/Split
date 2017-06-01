@@ -1,15 +1,10 @@
 package split
 
 import grails.transaction.Transactional
-import org.codehaus.groovy.grails.plugins.web.api.CommonWebApi
 
 @Transactional
 class UtilisateurService {
     public Utilisateur current_user
-
-    def serviceMethod() {
-
-    }
 
     def getUser(String email) {
         Utilisateur user = Utilisateur.findByEmail(email)
@@ -28,7 +23,7 @@ class UtilisateurService {
         current_user = user;
     }
 
-    List<Personnalite>  searchPersonnalite(String name){
+    List<Personnalite> searchPersonnalite(String name){
         def c = Personnalite.createCriteria()
         List<Personnalite> res = c.list {
             like 'surnom', "%${name}%"
@@ -36,8 +31,9 @@ class UtilisateurService {
         return res
     }
 
-    def addPersonnalite(Personnalite myPersonnalite, Personnalite personnaliteCible){
-
+    def List<Personnalite> getPersonnaliteCurrentUser(){
+        List<Personnalite> personnalites = Personnalite.findAllByUtilisateur(current_user)
+        return personnalites
     }
 
 }

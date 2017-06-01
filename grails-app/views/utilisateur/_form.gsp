@@ -17,7 +17,7 @@
     <input type="email" name="email" required="" value="${utilisateurInstance?.email}" class="form-control input-lg" placeholder="Email" tabindex="3">
 </div>
 <div class="form-group fieldcontain ${hasErrors(bean: utilisateurInstance, field: 'sexe', 'error')} required">
-    <input type="text" name="sexe" required="" value="${utilisateurInstance?.sexe}" class="form-control input-lg" placeholder="Sexe" tabindex="4">
+    <input type="text" name="sexe" required="" value="${utilisateurInstance?.sexe}" class="form-control input-lg" placeholder="Gender" tabindex="4">
 </div>
 
 <div class="form-group fieldcontain ${hasErrors(bean: utilisateurInstance, field: 'dateNaissance', 'error')} ">
@@ -28,7 +28,7 @@
 </div>
 
 <div class="form-group fieldcontain ${hasErrors(bean: utilisateurInstance, field: 'photo', 'error')} required">
-    <input type="text" name="photo" value="${utilisateurInstance?.photo}" class="form-control input-lg" placeholder="Photo url" tabindex="6">
+    <input type="text" name="photo" value="${utilisateurInstance?.photo}" class="form-control input-lg" placeholder="Picture url" tabindex="6">
 </div>
 <div class="form-group fieldcontain ${hasErrors(bean: utilisateurInstance, field: 'password', 'error')} required">
     <input type="password" name="password" required="" value="${utilisateurInstance?.password}" class="form-control input-lg" placeholder="Password" tabindex="7">
