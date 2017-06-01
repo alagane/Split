@@ -34,7 +34,7 @@
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="/Split">Home</a></li>
-				<li><a href="/Split/personnalite/create">Create a personality</a></li>
+				<li><a href="/Split/personnalite/index">Create a personality</a></li>
 				<li><a href="#">Search a personality</a></li>
 				<li><a href="#">Me</a></li>
 			</ul>
