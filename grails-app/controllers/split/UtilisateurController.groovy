@@ -41,8 +41,7 @@ class UtilisateurController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'utilisateur.label', default: 'Utilisateur'), utilisateurInstance.id])
-                redirect utilisateurInstance
+                flash.success = "Successfully registered user"
             }
             '*' { respond utilisateurInstance, [status: CREATED] }
         }
@@ -108,23 +107,17 @@ class UtilisateurController {
         Utilisateur user = utilisateurService.getUser(params.email)
 
         if (user == null) {
-            flash.message = "Email incorrect"
-            redirect(action: 'index')
+            flash.error = "Email incorrect"
         } else if (user.password != params.password) {
-            flash.message = "Password incorrect"
-            redirect(action: 'index')
+            flash.error = "Password incorrect"
         } else {
-            flash.message = "Welcome back, ${params.email}."
-            session.user = user
-            utilisateurService.current_user = user
-            session.nom = utilisateurService.getCurrentuser().nom
+            flash.success = "Happy to see you " + user.prenom + " :)"
+            utilisateurService.signIn(user)
         }
-
     }
 
     def logout() {
-        session.user = null
-        utilisateurService.current_user = null
-        redirect(action: 'index')
+        utilisateurService.signOut()
+        redirect(uri: '/')
     }
 }
