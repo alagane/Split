@@ -1,6 +1,6 @@
 package split
 
-
+import javax.naming.directory.SearchResult
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -11,6 +11,7 @@ class PersonnaliteController {
     def bootstrapService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -31,35 +32,16 @@ class PersonnaliteController {
             notFound()
             return
         }
-
-       /* def alex = bootstrapService.getAlex()
-        alex = utilisateurService.ajouterPersonnalite(alex, personnaliteInstance)
-        personnaliteInstance.setUtilisateur(alex)
-
         if (personnaliteInstance.hasErrors()) {
             respond personnaliteInstance.errors, view:'create'
             return
         }
 
         personnaliteInstance.save flush:true
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'personnalite.label', default: 'Personnalite'), personnaliteInstance.id])
                 redirect personnaliteInstance
-            }
-            '*' { respond personnaliteInstance, [status: CREATED] }
-        }*/
-        if (personnaliteInstance.hasErrors()) {
-            respond personnaliteInstance.errors, view:'create'
-            return
-        }
-
-        personnaliteInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.success = "Successfully registered personnality"
             }
             '*' { respond personnaliteInstance, [status: CREATED] }
         }

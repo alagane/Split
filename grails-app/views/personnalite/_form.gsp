@@ -13,7 +13,7 @@
 	</div>
 </div>
 <div class="form-group fieldcontain ${hasErrors(bean: personnaliteInstance, field: 'description', 'error')}">
-	<textarea  name="description" rows="3" required="" value="${personnaliteInstance?.description}" class="form-control" placeholder="Descrition" tabindex="2"></textarea>
+	<textarea  name="description" rows="3"  value="${personnaliteInstance?.description}" class="form-control" placeholder="Descrition" tabindex="2"></textarea>
 </div>
 
 
