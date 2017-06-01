@@ -36,28 +36,10 @@
 				<g:paginate total="${personnaliteInstanceCount ?: 0}" />
 			</div>
 
-			<h1> Add a personality</h1>
+			<g:form controller="personnalite" action="create" class="form-inline">
+				<button type="submit" class="btn btn-info">Create a personnality</button>
+			</g:form>
 
-			<div class="row">
-				<div class="col-xs-12 col-sm-8 col-md-6">
-
-					<div class="form-group fieldcontain ${hasErrors(bean: utilisateurInstance, field: 'email', 'error')} required">
-						<input type="email" name="email" required="" value="${utilisateurInstance?.email}" class="form-control input-lg" placeholder="Surnom" tabindex="1">
-					</div>
-
-					<div class="form-group fieldcontain ${hasErrors(bean: utilisateurInstance, field: 'sexe', 'error')} required">
-						<label for="comment">Description:</label>
-						<textarea name="description" required="" value="${utilisateurInstance?.sexe}"  class="form-control" rows="5" id="comment"></textarea>
-					</div>
-
-					<fieldset class="buttons">
-						<div class="row">
-							<div class="col-xs-6 col-md-6"><input type="submit" value="Add personnality" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
-						</div>
-					</fieldset>
-
-				</div>
-			</div>
 		</div>
 	</g:if>
 	<g:else>

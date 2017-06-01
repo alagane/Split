@@ -8,7 +8,6 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class PersonnaliteController {
     def utilisateurService
-    def bootstrapService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -45,7 +44,7 @@ class PersonnaliteController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'personnalite.label', default: 'Personnalite'), personnaliteInstance.id])
-                redirect personnaliteInstance
+                redirect (action:  "index")
             }
             '*' { respond personnaliteInstance, [status: CREATED] }
         }
