@@ -30,7 +30,9 @@
 					<g:render template="form"/>
 				</fieldset>
 				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+					<div class="row">
+						<div class="col-xs-2 col-md-2"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+					</div>
 				</fieldset>
 			</g:form>
 		</div>

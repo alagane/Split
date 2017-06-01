@@ -32,7 +32,7 @@ class PersonnaliteController {
             return
         }
 
-        def alex = bootstrapService.getAlex()
+       /* def alex = bootstrapService.getAlex()
         alex = utilisateurService.ajouterPersonnalite(alex, personnaliteInstance)
         personnaliteInstance.setUtilisateur(alex)
 
@@ -47,6 +47,19 @@ class PersonnaliteController {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'personnalite.label', default: 'Personnalite'), personnaliteInstance.id])
                 redirect personnaliteInstance
+            }
+            '*' { respond personnaliteInstance, [status: CREATED] }
+        }*/
+        if (personnaliteInstance.hasErrors()) {
+            respond personnaliteInstance.errors, view:'create'
+            return
+        }
+
+        personnaliteInstance.save flush:true
+
+        request.withFormat {
+            form multipartForm {
+                flash.success = "Successfully registered personnality"
             }
             '*' { respond personnaliteInstance, [status: CREATED] }
         }

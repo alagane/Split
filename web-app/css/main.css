@@ -594,3 +594,11 @@ a.skip {
 	position: absolute;
 	left: -9999px;
 }
+
+.hidden-password {
+	color: white;
+}
+
+.hidden-password:hover {
+	color: inherit;
+}

@@ -1,31 +1,21 @@
 <%@ page import="split.Personnalite" %>
 
-
-
-<div class="fieldcontain ${hasErrors(bean: personnaliteInstance, field: 'surnom', 'error')} required">
-	<label for="surnom">
-		<g:message code="personnalite.surnom.label" default="Surnom" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="surnom" required="" value="${personnaliteInstance?.surnom}"/>
-
+<div class="row">
+	<div class="col-xs-6 col-sm-6 col-md-6">
+		<div class="form-group fieldcontain ${hasErrors(bean: personnaliteInstance, field: 'surnom', 'error')} required">
+			<input type="text" name="surnom" required="" value="${personnaliteInstance?.surnom}" class="form-control input-lg" placeholder="Surnom" tabindex="1">
+		</div>
+	</div>
+	<div class="col-xs-6 col-sm-6 col-md-6">
+		<div class="form-group fieldcontain ${hasErrors(bean: personnaliteInstance, field: 'utilisateur', 'error')} required">
+			<g:select class="form-control" placeholder="Utilisateur" from="${split.Utilisateur.list()}" optionKey="id" name="utilisateur"   value="${personnaliteInstance?.utilisateur?.id}" />
+		</div>
+	</div>
+</div>
+<div class="form-group fieldcontain ${hasErrors(bean: personnaliteInstance, field: 'description', 'error')}">
+	<textarea  name="description" rows="3" required="" value="${personnaliteInstance?.description}" class="form-control" placeholder="Descrition" tabindex="2"></textarea>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: personnaliteInstance, field: 'description', 'error')} ">
-	<label for="description">
-		<g:message code="personnalite.description.label" default="Description" />
-		
-	</label>
-	<g:textField name="description" value="${personnaliteInstance?.description}"/>
 
-</div>
 
-<div class="fieldcontain ${hasErrors(bean: personnaliteInstance, field: 'utilisateur', 'error')} required">
-	<label for="utilisateur">
-		<g:message code="personnalite.utilisateur.label" default="Utilisateur" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="utilisateur" name="utilisateur.id" from="${split.Utilisateur.list()}" optionKey="id" required="" value="${personnaliteInstance?.utilisateur?.id}" class="many-to-one"/>
-
-</div>
 
